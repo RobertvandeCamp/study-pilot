@@ -5,7 +5,6 @@ import os
 
 load_dotenv()
 openAIApiKey = os.getenv('OPENAI_API_KEY')
-print(f'OPENAI_API_KEY: {openAIApiKey}')
 
 client = OpenAI(api_key=openAIApiKey)
 starting_assistant = ""
