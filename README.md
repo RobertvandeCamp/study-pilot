@@ -71,6 +71,10 @@
     }
     ```
 
+- **GET /chat/stream**
+  - Request parameters: None
+  - Response: Streamed data using server side events
+
 ### Unit Tests
 
 1. Run the unit tests:

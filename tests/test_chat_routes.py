@@ -38,5 +38,10 @@ class ChatRoutesTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('response', response.json)
 
+    def test_stream_route(self):
+        response = self.client.get('/chat/stream')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content_type, 'text/event-stream')
+
 if __name__ == '__main__':
     unittest.main()
