@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, Response, stream_with_context
 from services.chat_service import ChatService
+from services.streaming_assistant import start_conversation
 
 chat_blueprint = Blueprint('chat', __name__)
 
@@ -24,11 +25,9 @@ def latest_response():
     response = chat_service.get_latest_response(user_id)
     return jsonify({'response': response})
 
-def event_stream():
-    while True:
-        # Placeholder for actual streaming logic
-        yield 'data: {}\n\n'.format('message')
-
 @chat_blueprint.route('/chat/stream', methods=['GET'])
 def stream():
-    return Response(stream_with_context(event_stream()), content_type='text/event-stream')
+    assistant = snape  # or any other assistant you want to use
+    thread = client.beta.threads.create()
+    send_message(thread.id, "The translation of the word 'Building' to Dutch is 'Gebouw'.")
+    return Response(start_conversation(assistant, thread), content_type='text/event-stream')
