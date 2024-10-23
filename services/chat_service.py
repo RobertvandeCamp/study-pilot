@@ -1,5 +1,5 @@
 import openai
-from app import db
+from __init__ import db
 from models.user import User
 from models.conversation import Conversation
 from dotenv import load_dotenv
